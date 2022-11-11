@@ -14,7 +14,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
-@MapperScan(basePackages = {"org.gery.mapper"})
+@MapperScan(basePackages = {"com.gery.mapper"})
 public class RootConfig {
 	
 	
@@ -23,7 +23,7 @@ public class RootConfig {
 	public DataSource datasource() {
 		
 		HikariConfig hikariConfig = new HikariConfig();
-		hikariConfig.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+		hikariConfig.setDriverClassName("oracle.jdbc.OracleDriver");
 		hikariConfig.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:XE");
 		hikariConfig.setUsername("c##scott");
 		hikariConfig.setPassword("tiger");
