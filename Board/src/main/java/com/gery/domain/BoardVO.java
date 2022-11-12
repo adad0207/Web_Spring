@@ -1,4 +1,5 @@
 package com.gery.domain;
+
 import java.sql.Date;
 
 import lombok.Data;

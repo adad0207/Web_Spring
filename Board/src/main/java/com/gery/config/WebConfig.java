@@ -22,6 +22,8 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 		return new String[] { "/" };
 	}
 	
+	
+	//¿Ã∞‘ πª±Ó
 	@Override
 	protected void customizeRegistration(
 			ServletRegistration.Dynamic registration) {

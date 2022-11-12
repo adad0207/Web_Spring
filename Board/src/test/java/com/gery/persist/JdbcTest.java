@@ -12,7 +12,7 @@ public class JdbcTest {
 
 	static {
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName("oracle.jdbc.OracleDriver");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
