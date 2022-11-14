@@ -15,21 +15,21 @@ import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes= {RootConfig.class})
+@ContextConfiguration(classes = { RootConfig.class })
 @Log4j
-public class MapperTests {	
+public class MapperTests {
 	@Setter(onMethod_ = { @Autowired })
 	private BoardMapper boardMapper;
-	
-	//GetList
+
+	// GetList
 //	@Test
 //	public void testGetList() {
 ////		log.info(boardMapper.getClass().getName());
 //		boardMapper.getList().forEach(board -> log.info(board));
 //		
 //	}
-	
-	//Insert
+
+	// Insert
 //	@Test
 //	public void testInsert() {
 //		BoardVO board = new BoardVO();
@@ -41,13 +41,22 @@ public class MapperTests {
 //		
 //		log.info(board);
 //	}
-	
-	//Read
+
+	// Read
+//	@Test
+//	public void testRead() {
+//		
+//		BoardVO board = boardMapper.read(4L);
+//		
+//		log.info(board);
+//	}
+
+	// Delete
 	@Test
-	public void testRead() {
-		
-		BoardVO board = boardMapper.read(4L);
-		
-		log.info(board);
+	public void testDelete() {
+
+		log.info("Delete Count : " + boardMapper.delete(3L));
+
 	}
+
 }
