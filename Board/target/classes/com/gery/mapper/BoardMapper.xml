@@ -29,5 +29,9 @@
 
 	</insert>
 
+	<select id="read" resultType="com.gery.domain.BoardVO">
+		select * from tbl_board where bno = #{bno}
+	</select>
+
 	
 </mapper> 

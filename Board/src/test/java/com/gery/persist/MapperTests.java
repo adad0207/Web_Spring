@@ -17,17 +17,17 @@ import lombok.extern.log4j.Log4j;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= {RootConfig.class})
 @Log4j
-public class ListMapperTests {	
+public class MapperTests {	
 	@Setter(onMethod_ = { @Autowired })
 	private BoardMapper boardMapper;
 	
 	//GetList
-	@Test
-	public void testGetList() {
-//		log.info(boardMapper.getClass().getName());
-		boardMapper.getList().forEach(board -> log.info(board));
-		
-	}
+//	@Test
+//	public void testGetList() {
+////		log.info(boardMapper.getClass().getName());
+//		boardMapper.getList().forEach(board -> log.info(board));
+//		
+//	}
 	
 	//Insert
 //	@Test
@@ -41,4 +41,13 @@ public class ListMapperTests {
 //		
 //		log.info(board);
 //	}
+	
+	//Read
+	@Test
+	public void testRead() {
+		
+		BoardVO board = boardMapper.read(4L);
+		
+		log.info(board);
+	}
 }
