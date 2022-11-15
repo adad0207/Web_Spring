@@ -52,11 +52,27 @@ public class MapperTests {
 //	}
 
 	// Delete
+//	@Test
+//	public void testDelete() {
+//
+//		log.info("Delete Count : " + boardMapper.delete(3L));
+//
+//	}
+	
+	//Update
 	@Test
-	public void testDelete() {
-
-		log.info("Delete Count : " + boardMapper.delete(3L));
-
+	public void testUpdate() {
+		
+		BoardVO board = new BoardVO();
+		board.setBno(4L);
+		board.setTitle("수정된 제목");
+		board.setContent("수정된 내용");
+		board.setWriter("수정된 user");
+		
+		int count = boardMapper.update(board);
+		
+		log.info("Update Count : " + count);
 	}
+	
 
 }
