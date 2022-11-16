@@ -31,16 +31,22 @@ public class BoardServiceTests {
 //		
 //	}
 	
+//	@Test
+//	public void testRegister() {
+//		
+//		BoardVO board = new BoardVO();
+//		board.setTitle("새 글 Using Service");
+//		board.setContent("새 내용 Using Service");
+//		board.setWriter("새 사용자 Using Service");
+//		
+//		service.register(board);
+//		
+//		log.info("생성된 게시물의 번호 : " + board.getBno());
+//	}
+	
 	@Test
-	public void testRegister() {
+	public void testGetList() {
 		
-		BoardVO board = new BoardVO();
-		board.setTitle("새 글 Using Service");
-		board.setContent("새 내용 Using Service");
-		board.setWriter("새 사용자 Using Service");
-		
-		service.register(board);
-		
-		log.info("생성된 게시물의 번호 : " + board.getBno());
+		service.getlist().forEach(board -> log.info(board));
 	}
 }
