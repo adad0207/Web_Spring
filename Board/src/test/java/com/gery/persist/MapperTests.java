@@ -60,19 +60,19 @@ public class MapperTests {
 //	}
 	
 	//Update
-	@Test
-	public void testUpdate() {
-		
-		BoardVO board = new BoardVO();
-		board.setBno(4L);
-		board.setTitle("수정된 제목");
-		board.setContent("수정된 내용");
-		board.setWriter("수정된 user");
-		
-		int count = boardMapper.update(board);
-		
-		log.info("Update Count : " + count);
-	}
+//	@Test
+//	public void testUpdate() {
+//		
+//		BoardVO board = new BoardVO();
+//		board.setBno(4L);
+//		board.setTitle("수정된 제목");
+//		board.setContent("수정된 내용");
+//		board.setWriter("수정된 user");
+//		
+//		int count = boardMapper.update(board);
+//		
+//		log.info("Update Count : " + count);
+//	}
 	
 
 }
