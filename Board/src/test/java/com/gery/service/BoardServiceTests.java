@@ -56,9 +56,24 @@ public class BoardServiceTests {
 //		log.info(service.get(1L));
 //	}
 	
+//	@Test
+//	public void testDelete() {
+//		
+//		log.info("Remove : " + service.remove(6L));
+//	}
+	
 	@Test
-	public void testDelete() {
+	public void testUpdate() {
+		BoardVO board = service.get(1L);
 		
-		log.info("Remove : " + service.remove(6L));
+		// 없으면
+		if(board == null) {
+			return;
+		}
+		
+		board.setTitle("제목 수정 Service");
+		board.setContent("내용 수정 Service");
+		
+		log.info("Update : " + service.modify(board));
 	}
 }
