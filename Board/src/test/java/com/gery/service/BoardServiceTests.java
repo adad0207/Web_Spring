@@ -50,9 +50,15 @@ public class BoardServiceTests {
 //		service.getlist().forEach(board -> log.info(board));
 //	}
 	
+//	@Test
+//	public void testGet() {
+//		
+//		log.info(service.get(1L));
+//	}
+	
 	@Test
-	public void testGet() {
+	public void testDelete() {
 		
-		log.info(service.get(1L));
+		log.info("Remove : " + service.remove(6L));
 	}
 }
