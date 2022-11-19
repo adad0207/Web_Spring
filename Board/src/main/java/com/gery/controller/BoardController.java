@@ -31,12 +31,12 @@ public class BoardController {
 	private BoardService service;
 	
 	@GetMapping("/list")
-	public void list(Model model) {
+	public String list(Model model) {
 		
 		log.info("list");
 		
 		model.addAttribute("list", service.getlist());
-
+		return "/list";
 	}
 	
 	@PostMapping("/register")
