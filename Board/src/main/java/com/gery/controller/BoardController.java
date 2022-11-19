@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gery.domain.BoardVO;
@@ -47,6 +48,13 @@ public class BoardController {
 		rttr.addFlashAttribute("result", board.getBno());
 		
 		return "redirect:/board/list";
+	}
+	
+	@GetMapping
+	public void get(@RequestParam("bno") Long bno, Model model) {
+		
+		log.info("/get");
+		model.addAttribute("board", service.get(bno));
 	}
 	
 }
