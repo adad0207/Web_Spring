@@ -36,7 +36,7 @@ public class BoardController {
 		log.info("list");
 		
 		model.addAttribute("list", service.getlist());
-		return "/list";
+		return "pages/list";
 	}
 	
 	@PostMapping("/register")
