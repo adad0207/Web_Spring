@@ -2,6 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 
 
@@ -16,7 +17,9 @@
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
-			<div class="panel-heading">DataTables Advanced Tables</div>
+			<div class="panel-heading">Board List Page
+			<button id="regBtn" type="button" class="btn btn-xs pull-right">Register New Board</button>
+			</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 				<table width="100%"
@@ -45,7 +48,6 @@
 						</c:forEach>
 					</tbody>
 				</table>
-
 				<!-- Modal  추가 -->
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel" aria-hidden="true">
@@ -70,7 +72,6 @@
 				</div>
 				<!-- /.modal -->
 
-
 			</div>
 			<!-- /.panel-body -->
 		</div>
@@ -82,31 +83,31 @@
 
 
 <script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
+	$(document).ready(
+			function() {
 
-						var result = '<c:out value="${result}"/>';
+				var result = '<c:out value="${result}"/>';
 
-						checkModal(result);
+				checkModal(result);
 
-						history.replaceState({}, null, null);
+				function checkModal(result) {
 
-						function checkModal(result) {
+					if (result === '') {
+						return;
+					}
 
-							if (result === '') {
-								return;
-							}
+					if (parseInt(result) > 0) {
+						$(".modal-body").html(
+								"게시글 " + parseInt(result) + " 번이 등록되었습니다.");
+					}
 
-							if (parseInt(result) > 0) {
-								$(".modal-body").html(
-										"게시글 " + parseInt(result)
-												+ " 번이 등록되었습니다.");
-							}
-
-							$("#myModal").modal("show");
-						}
-					});
+					$("#myModal").modal("show");
+				}
+				
+				$("#regBtn").on("click", function(){
+					self.location.href = "/board/register";
+				});
+			});
 </script>
 
 
