@@ -44,8 +44,18 @@
                         			<label>
                         			Text Area
                         			</label> </br>
-                        		<textarea class="form-control" name="content"rows="3" 
-                        		value="${board.content }" />
+                        		<textarea class="form-control" name="content" rows="3" 
+                        		value="${board.content }"></textarea>
+                        		</div>
+                        		
+                        		
+                        		<!-- Writer -->
+                        		<div class="form-group">
+                        			<label>
+                        			Writer
+                        			</label> </br>
+                        		<input class="form-control" name="writer"
+                        			value="${board.writer }" readonly="readonly">
                         		</div>
                         		
 								<!-- modify button -->

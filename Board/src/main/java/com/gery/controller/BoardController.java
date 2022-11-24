@@ -65,13 +65,13 @@ public class BoardController {
 	}
 	
 	
-	@GetMapping("/modfiy")
+	@GetMapping("/modify")
 	public String modify(@RequestParam("bno") Long bno, Model model) {
 		
 		log.info("/modfiy");
 		model.addAttribute("board", service.get(bno));
 		
-		return "pages/modfiy";
+		return "pages/modify";
 	}
 	
 	@PostMapping("/modify.do")
