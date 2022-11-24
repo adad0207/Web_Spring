@@ -77,7 +77,7 @@ public class BoardController {
 	@PostMapping("/modify.do")
 	
 	public String modify(BoardVO board, RedirectAttributes rttr) {
-		log.info("modify" + board);
+		log.info("modify.do" + board);
 		
 		if(service.modify(board)) {
 			rttr.addFlashAttribute("result", "success");
@@ -86,9 +86,19 @@ public class BoardController {
 	}
 	
 	
-	@PostMapping("/remove")
+	@GetMapping("/remove")
+	public String remove(@RequestParam("bno") Long bno, Model model) {
+		
+		log.info("/remove");
+		model.addAttribute("bno", bno);
+		
+		return "pages/remove";
+	}
+	
+	
+	@PostMapping("/remove.do")
 	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
-		log.info("remove..." + bno);
+		log.info("remove.do..." + bno);
 		
 		if(service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
