@@ -64,7 +64,18 @@ public class BoardController {
 		return "pages/get";
 	}
 	
-	@PostMapping("/modify")
+	
+	@GetMapping("/modfiy")
+	public String modify(@RequestParam("bno") Long bno, Model model) {
+		
+		log.info("/modfiy");
+		model.addAttribute("board", service.get(bno));
+		
+		return "pages/modfiy";
+	}
+	
+	@PostMapping("/modify.do")
+	
 	public String modify(BoardVO board, RedirectAttributes rttr) {
 		log.info("modify" + board);
 		
