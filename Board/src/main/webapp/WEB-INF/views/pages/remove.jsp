@@ -18,7 +18,11 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
+<<<<<<< HEAD
 				Do You really want to remove this board? </br>
+=======
+				Do You want really to remove this board? </br>
+>>>>>>> branch 'main' of https://github.com/adad0207/Web_Spring.git
 				<form action="/board/remove.do" method="post">
 					<input type="hidden" name="bno" value="${bno }"/>
 					<button type="submit" data-oper='real_remove' class="btn btn-danger">Remove</button>
