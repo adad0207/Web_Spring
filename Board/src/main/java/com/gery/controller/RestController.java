@@ -31,5 +31,13 @@ public class RestController {
 		return "æ»≥Á«œººø‰";
 	}
 	
-	//d
+	@GetMapping(value = "/getSample",
+			produces={ MediaType.APPLICATION_JSON_UTF8_VALUE,
+					MediaType.APPLICATION_XML_VALUE})
+	public BoardVO getSample() {
+		
+		return new BoardVO(2L, "Json_title", "Json_content", "Json_writer",
+				null, null);
+	}
+	
 }
