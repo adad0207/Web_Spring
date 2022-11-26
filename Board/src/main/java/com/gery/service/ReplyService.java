@@ -6,16 +6,16 @@ import com.gery.domain.ReplyVO;
 
 public interface ReplyService {
 
-	void CommentRegist(ReplyVO vo); // 댓글 등록
+	public int register(ReplyVO vo);
 
-	List<ReplyVO> getList(int com_bno); // 목록 요청
+	public ReplyVO get(Long rno);
 
-	int getTotal(int com_bno); // 댓글 개수
+	public int modify(ReplyVO vo);
 
-	List<ReplyVO> myRecord(String writer);
+	public int remove(Long rno);
 
-	void commentDelete(ReplyVO vo);
-
-	List<ReplyVO> getComList(String com_wrtier); // 어드민용 회원 댓글 불러오기
+//	public List<ReplyVO> getList(Criteria cri, Long bno);
+//	
+//	public ReplyPageDTO getListPage(Criteria cri, Long bno);
 
 }
