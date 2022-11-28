@@ -61,5 +61,5 @@
             <!-- /.row -->
 	
 	
-	
+<script type="text/javascript" src="/resources/js/reply.js">C</script>
 <%@include file="../includes/footer.jsp" %>

@@ -27,21 +27,21 @@ public class ReplyMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private ReplyMapper mapper;
 
-//	@Test
-//	public void testCreate() {
-//
-//		IntStream.rangeClosed(1, 10).forEach(i -> {
-//
-//			ReplyVO vo = new ReplyVO();
-//
-//			vo.setBno(bnoArr[i % 5]);
-//			vo.setReply("Good" + i);
-//			vo.setReplyer("replyer" + i);
-//
-//			mapper.insert(vo);
-//		});
-//
-//	}
+	@Test
+	public void testCreate() {
+
+		IntStream.rangeClosed(1, 10).forEach(i -> {
+
+			ReplyVO vo = new ReplyVO();
+
+			vo.setBno(bnoArr[i % 5]);
+			vo.setReply("Good" + i);
+			vo.setReplyer("replyer" + i);
+
+			mapper.insert(vo);
+		});
+
+	}
 //
 //	@Test
 //	public void testRead() {
