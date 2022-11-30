@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gery.domain.BoardVO;
+import com.gery.domain.Criteria;
 import com.gery.service.BoardService;
 
 import lombok.AllArgsConstructor;

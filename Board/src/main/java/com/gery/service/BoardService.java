@@ -4,6 +4,7 @@ package com.gery.service;
 import java.util.List;
 
 import com.gery.domain.BoardVO;
+import com.gery.domain.Criteria;
 
 public interface BoardService {
 	
@@ -15,5 +16,7 @@ public interface BoardService {
 	
 	public boolean remove(long bno);
 	
-	public List<BoardVO> getlist();
+//	public List<BoardVO> getlist();
+	
+	public List<BoardVO> getlist(Criteria cri);
 }

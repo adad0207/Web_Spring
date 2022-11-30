@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Select;
 
 import com.gery.domain.BoardVO;
+import com.gery.domain.Criteria;
 
 public interface BoardMapper {
 
@@ -18,4 +19,6 @@ public interface BoardMapper {
 	public int delete(Long bno);
 
 	public int update(BoardVO vo);
+	
+	public List<BoardVO> getListWithPaging(Criteria cri);
 }
