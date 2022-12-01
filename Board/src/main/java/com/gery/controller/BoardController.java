@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gery.domain.BoardVO;
 import com.gery.domain.Criteria;
+import com.gery.domain.PageDTO;
 import com.gery.service.BoardService;
 
 import lombok.AllArgsConstructor;
@@ -41,12 +43,17 @@ public class BoardController {
 //	}
 	
 	
+	
 	@GetMapping("/list")
-	public void list(Criteria cri, Model model) {
-
+	public String list(Criteria cri, Model model) {
 		log.info("list: " + cri);
 		model.addAttribute("list", service.getlist(cri));
-
+		//model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		int total = service.getTotal(cri);
+		log.info("total: " + total);
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		
+		return "pages/list";
 	}
 	
 	@GetMapping("/register")
@@ -66,7 +73,8 @@ public class BoardController {
 	}
 	
 	@GetMapping("/get")
-	public String get(@RequestParam("bno") Long bno, Model model) {
+	public String get(@RequestParam("bno") Long bno, @ModelAttribute("cri") 
+	Criteria cri, Model model) {
 		
 		log.info("/get");
 		model.addAttribute("board", service.get(bno));
@@ -76,7 +84,8 @@ public class BoardController {
 	
 	
 	@GetMapping("/modify")
-	public String modify(@RequestParam("bno") Long bno, Model model) {
+	public String modify(@RequestParam("bno") Long bno, @ModelAttribute("cri") 
+	Criteria cri,Model model) {
 		
 		log.info("/modfiy");
 		model.addAttribute("board", service.get(bno));
@@ -86,7 +95,8 @@ public class BoardController {
 	
 	@PostMapping("/modify.do")
 	
-	public String modify(BoardVO board, RedirectAttributes rttr) {
+	public String modify(BoardVO board, @ModelAttribute("cri") 
+	Criteria cri, RedirectAttributes rttr) {
 		log.info("modify.do" + board);
 		
 		if(service.modify(board)) {

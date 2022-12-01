@@ -60,7 +60,7 @@
 					<!-- 					</div> -->
 
 
-
+					<input type="hiedden" name="cri" value="${cri}"/>
 					<button type="submit" data-oper='modify' class="btn btn-default">Modify</button>
 					<button type="submit" data-oper='remove' class="btn btn-danger">Remove</button>
 					<button type="submit" data-oper='list' class="btn btn-info">List</button>
@@ -109,6 +109,11 @@
 				// 				formObj.append(amountTag);
 				// 				formObj.append(keywordTag);
 				// 				formObj.append(typeTag);
+				else {
+					
+					
+				}
+				
 			}
 
 			formObj.submit();
