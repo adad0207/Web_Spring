@@ -2,8 +2,12 @@ package com.gery.service;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.gery.domain.Criteria;
+import com.gery.domain.ReplyPageDTO;
 import com.gery.domain.ReplyVO;
 import com.gery.mapper.ReplyMapper;
 
@@ -56,22 +60,22 @@ public class ReplyServiceImpl implements ReplyService {
 
   }
 
-//  @Override
-//  public List<ReplyVO> getList(Criteria cri, Long bno) {
-//
-//    log.info("get Reply List of a Board " + bno);
-//
-//    return mapper.getListWithPaging(cri, bno);
-//
-//  }
-//  
-//  @Override
-//  public ReplyPageDTO getListPage(Criteria cri, Long bno) {
-//       
-//    return new ReplyPageDTO(
-//        mapper.getCountByBno(bno), 
-//        mapper.getListWithPaging(cri, bno));
-//  }
+  @Override
+  public List<ReplyVO> getList(Criteria cri, Long bno) {
+
+    log.info("get Reply List of a Board " + bno);
+
+    return mapper.getListWithPaging(cri, bno);
+
+  }
+  
+  @Override
+  public ReplyPageDTO getListPage(Criteria cri, Long bno) {
+       
+    return new ReplyPageDTO(
+        mapper.getCountByBno(bno), 
+        mapper.getListWithPaging(cri, bno));
+  }
 
 
 }

@@ -2,6 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 
 
@@ -69,7 +70,74 @@
 <!-- /.row -->
 
 
+<script type="text/javascript" src="/resources/js/reply.js"></script>
+
+<script>
+
+console.log("===============");
+console.log("JS TEST");
+
+var bnoValue = '<c:out value="${board.bno}"/>';
+
+//for replyService add test
+replyService.add(
+    
+    {reply:"JS Test", replyer:"tester", bno:bnoValue}
+    ,
+    function(result){ 
+      alert("RESULT: " + result);
+    }
+);
+
+
+//reply List Test
+// replyService.getList({bno:bnoValue, page:1}, function(list){
+//     console.log("getList()...")
+// 	  for(var i = 0,  len = list.length||0; i < len; i++ ){
+// 	    console.log(list[i]);
+//     	console.log("list()...")
+	    
+// 	  }
+//     console.log("success()...")
+// });
+ 
+
+ 
+/*  //17번 댓글 삭제 테스트 
+ replyService.remove(17, function(count) {
+
+   console.log(count);
+
+   if (count === "success") {
+     alert("REMOVED");
+   }
+ }, function(err) {
+   alert('ERROR...');
+ });
+ */
+ 
+
+//12번 댓글 수정 
+/* replyService.update({
+  rno : 12,
+  bno : bnoValue,
+  reply : "Modified Reply...."
+}, function(result) {
+
+  alert("수정 완료...");
+
+});  
+ */
+
+</script>  
+
+
+
 <script type="text/javascript">
+
+
+
+
 $(document).ready(function() {
   
   var operForm = $("#operForm"); 

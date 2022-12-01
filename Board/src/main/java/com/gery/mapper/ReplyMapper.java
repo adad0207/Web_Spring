@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.gery.domain.Criteria;
 import com.gery.domain.ReplyVO;
 
 
@@ -17,7 +18,7 @@ public interface ReplyMapper {
 
 	public int update(ReplyVO reply);
 
-//	public List<ReplyVO> getListWithPaging(@Param("cri") Criteria cri, @Param("bno") Long bno);
+	public List<ReplyVO> getListWithPaging(@Param("cri") Criteria cri, @Param("bno") Long bno);
 
 	public int getCountByBno(Long bno);
 }

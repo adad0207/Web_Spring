@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.gery.domain.Criteria;
 import com.gery.domain.ReplyVO;
 import com.gery.mapper.ReplyMapper;
 
@@ -27,21 +28,21 @@ public class ReplyMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private ReplyMapper mapper;
 
-	@Test
-	public void testCreate() {
-
-		IntStream.rangeClosed(1, 10).forEach(i -> {
-
-			ReplyVO vo = new ReplyVO();
-
-			vo.setBno(bnoArr[i % 5]);
-			vo.setReply("Good" + i);
-			vo.setReplyer("replyer" + i);
-
-			mapper.insert(vo);
-		});
-
-	}
+//	@Test
+//	public void testCreate() {
+//
+//		IntStream.rangeClosed(1, 10).forEach(i -> {
+//
+//			ReplyVO vo = new ReplyVO();
+//
+//			vo.setBno(bnoArr[i % 5]);
+//			vo.setReply("Good" + i);
+//			vo.setReplyer("replyer" + i);
+//
+//			mapper.insert(vo);
+//		});
+//
+//	}
 //
 //	@Test
 //	public void testRead() {
@@ -82,16 +83,16 @@ public class ReplyMapperTests {
 //		log.info("UPDATE COUNT: " + count);
 //	}
 //
-//	@Test
-//	public void testList() {
-//
-//		Criteria cri = new Criteria();
-//
-//		List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);
-//
-//		replies.forEach(reply -> log.info(reply));
-//
-//	}
+	@Test
+	public void testList() {
+
+		Criteria cri = new Criteria();
+
+		List<ReplyVO> replies = mapper.getListWithPaging(cri, bnoArr[0]);
+
+		replies.forEach(reply -> log.info(reply));
+
+	}
 //	
 //	@Test
 //	public void testList2() {
