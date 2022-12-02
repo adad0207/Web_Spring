@@ -21,7 +21,7 @@
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 				<div class="form-group">
-					<label>Bno</label></br> <input type="text" class="form-control"
+					<label>Bno_1</label></br> <input type="text" class="form-control"
 						name="bno" value="${board.bno }" readonly="readonly">
 				</div>
 
@@ -74,6 +74,7 @@
 
 <script>
 
+console.log("===============");
 console.log("===============");
 console.log("JS TEST");
 
