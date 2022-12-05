@@ -81,26 +81,26 @@ console.log("JS TEST");
 var bnoValue = '<c:out value="${board.bno}"/>';
 
 //for replyService add test
-replyService.add(
+// replyService.add(
     
-    {reply:"JS Test", replyer:"tester", bno:bnoValue}
-    ,
-    function(result){ 
-      alert("RESULT: " + result);
-    }
-);
+//     {reply:"JS Test", replyer:"tester", bno:bnoValue}
+//     ,
+//     function(result){ 
+//       alert("RESULT: " + result);
+//     }
+// );
 
 
 //reply List Test
-// replyService.getList({bno:bnoValue, page:1}, function(list){
-//     console.log("getList()...")
-// 	  for(var i = 0,  len = list.length||0; i < len; i++ ){
-// 	    console.log(list[i]);
-//     	console.log("list()...")
+replyService.getList({bno:bnoValue, page:1}, function(list){
+    console.log("getList()...")
+	  for(var i = 0,  len = list.length||0; i < len; i++ ){
+	    console.log(list[i]);
+    	console.log("list()...")
 	    
-// 	  }
-//     console.log("success()...")
-// });
+	  }
+    console.log("success()...")
+});
  
 
  
