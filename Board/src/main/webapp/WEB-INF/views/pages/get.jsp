@@ -75,7 +75,6 @@
 <script>
 
 console.log("===============");
-console.log("===============");
 console.log("JS TEST");
 
 var bnoValue = '<c:out value="${board.bno}"/>';
@@ -92,43 +91,43 @@ var bnoValue = '<c:out value="${board.bno}"/>';
 
 
 //reply List Test
-replyService.getList({bno:bnoValue, page:1}, function(list){
-    console.log("getList()...")
-	  for(var i = 0,  len = list.length||0; i < len; i++ ){
-	    console.log(list[i]);
-    	console.log("list()...")
+// replyService.getList({bno:bnoValue, page:1}, function(data){
+//     console.log("getList()...")
+//     console.log(data)
+// 	  for(var i = 0,  len = data.list.length||0; i < len; i++ ){
+// 	    console.log(data.list[i]);
+//     	console.log("list()...")
 	    
-	  }
-    console.log("success()...")
-});
- 
+// 	  }
+//     console.log("success()...")
+// });
+
 
  
-/*  //17번 댓글 삭제 테스트 
- replyService.remove(17, function(count) {
+//6번 댓글 삭제 테스트 
+//  replyService.remove(6, function(count) {
 
-   console.log(count);
+//    console.log(count);
 
-   if (count === "success") {
-     alert("REMOVED");
-   }
- }, function(err) {
-   alert('ERROR...');
- });
- */
+//    if (count === "success") {
+//      alert("REMOVED");
+//    }
+//  }, function(err) {
+//    alert('ERROR...');
+//  });
  
 
-//12번 댓글 수정 
-/* replyService.update({
-  rno : 12,
+//5번 댓글 수정 
+replyService.update({
+  rno : 4,
   bno : bnoValue,
-  reply : "Modified Reply...."
+  reply : "ggg"
 }, function(result) {
 
   alert("수정 완료...");
 
 });  
- */
+
 
 </script>  
 
@@ -160,3 +159,4 @@ $(document).ready(function() {
 });
 </script>
 <%@include file="../includes/footer.jsp"%>
+
