@@ -48,15 +48,13 @@
 
 				<form id='operForm' action="/boad/modify" method="get">
 					<input type='hidden' id='bno' name='bno'
-						value='<c:out value="${board.bno}"/>'>
-					<input
+						value='<c:out value="${board.bno}"/>'> <input
 						type='hidden' name='pageNum'
-						value='<c:out value="${cri.pageNum}"/>'> 
-					<input
+						value='<c:out value="${cri.pageNum}"/>'> <input
 						type='hidden' name='amount' value='<c:out value="${cri.amount}"/>'>
-<!-- 					<input type='hidden' name='keyword' -->
-<%-- 						value='<c:out value="${cri.keyword}"/>'> <input --%>
-<%-- 						type='hidden' name='type' value='<c:out value="${cri.type}"/>'> --%>
+					<!-- 					<input type='hidden' name='keyword' -->
+					<%-- 						value='<c:out value="${cri.keyword}"/>'> <input --%>
+					<%-- 						type='hidden' name='type' value='<c:out value="${cri.type}"/>'> --%>
 
 				</form>
 
@@ -69,17 +67,100 @@
 </div>
 <!-- /.row -->
 
+<div class='row'>
+
+	<div class="col-lg-12">
+
+		<!-- /.panel -->
+		<div class="panel panel-default">
+			<!--       <div class="panel-heading">
+        <i class="fa fa-comments fa-fw"></i> Reply
+      </div> -->
+
+			<div class="panel-heading">
+				<i class="fa fa-comments fa-fw"></i> Reply
+				<button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New
+					Reply</button>
+			</div>
+
+
+			<!-- /.panel-heading -->
+			<div class="panel-body">
+
+				<ul class="chat">
+					<!--  start reply -->
+					<li class="left clearfix" data-rno='12'>
+						<div>
+							<div class="header">
+								<strong class="primary-font">user00</strong>
+								<small class="pull-right text-muted">2022-12-10</small>
+							</div>
+							<p>Hello</p>
+						</div>
+					</li>
+				</ul>
+				<!-- ./ end ul -->
+			</div>
+			<!-- /.panel .chat-panel -->
+
+			<div class="panel-footer"></div>
+
+
+		</div>
+	</div>
+	<!-- ./ end row -->
+</div>
+
 
 <script type="text/javascript" src="/resources/js/reply.js"></script>
 
 <script>
+$(document).ready(function () {
+	  
+	  var bnoValue = '<c:out value="${board.bno}"/>';
+	  var replyUL = $(".chat");
+	  console.log("list!!");
+	  
+	    showList(1);
+	    
 
-console.log("===============");
-console.log("JS TEST");
+	    
+	function showList(page){
+	      replyService.getList({bno:bnoValue,page: page|| 1 }, function(data) {
+	        
+	        var str="";
+	       if(data == null || data.list.length == 0){
+	        
+	        replyUL.html("");
+	        
+	        return;
+	      }
+	       for (var i = 0, len = data.list.length || 0; i < len; i++) {
+	           str +="<li class='left clearfix' data-rno='"+data.list[i].rno+"'>";
+	           str +="  <div><div class='header'><strong class='primary-font'>"+data.list[i].replyer+"</strong>"; 
+	           str +="    <small class='pull-right text-muted'>"+replyService.displayTime(data.list[i].replyDate)+"</small></div>";
+	           str +="    <p>"+data.list[i].reply+"</p></div></li>";
+	         }
 
-var bnoValue = '<c:out value="${board.bno}"/>';
 
-//for replyService add test
+	    replyUL.html(str);
+
+	      });//end function
+	      
+	   }//end showList
+});
+
+</script>
+
+
+<script>
+
+// console.log("===============");
+// console.log("JS TEST");
+
+// var bnoValue = '<c:out value="${board.bno}"/>';
+
+// for replyService add test
 // replyService.add(
     
 //     {reply:"JS Test", replyer:"tester", bno:bnoValue}
@@ -90,7 +171,7 @@ var bnoValue = '<c:out value="${board.bno}"/>';
 // );
 
 
-//reply List Test
+// reply List Test
 // replyService.getList({bno:bnoValue, page:1}, function(data){
 //     console.log("getList()...")
 //     console.log(data)
@@ -118,18 +199,18 @@ var bnoValue = '<c:out value="${board.bno}"/>';
  
 
 //5번 댓글 수정 
-replyService.update({
-  rno : 4,
-  bno : bnoValue,
-  reply : "ggg"
-}, function(result) {
+// replyService.update({
+//   rno : 4,
+//   bno : bnoValue,
+//   reply : "ggg"
+// }, function(result) {
 
-  alert("수정 완료...");
+//   alert("수정 완료...");
 
-});  
+// });  
 
 
-</script>  
+</script>
 
 
 
